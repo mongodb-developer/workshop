@@ -1,6 +1,6 @@
 ## MongoDB Developer Workshop - Atlas Module Introduction
 
-![MongoDB](https://github.com/mongodb-developer/workshop/Atlas/images/00-mongodb-logo.jpg "MongoDB")
+![MongoDB](https://github.com/mongodb-developer/workshop/blob/atlas/Atlas/images/00-mongodb-logo.jpg "MongoDB")
 
 This hands-on workshop is designed to familiarize you with all aspects of MongoDB, from deploying a cluster, to loading data to creating services to access that data. 
 
