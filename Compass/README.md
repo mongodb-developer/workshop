@@ -14,8 +14,10 @@ Compass requires:
 To download Compass, you can use your preferred web browser.
 
 1. Open the downloads page.
+    
     * Download the latest version of MongoDB Compass for macOS. The MongoDB Compass installer is a .dmg disk image.
     * Install Compass
     * Once you have downloaded Compass, double-click on the .dmg file to open the disk image within the macOS Finder.
+
 2. Drag the MongoDB Compass application to your Applications folder.
 
