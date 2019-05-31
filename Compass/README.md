@@ -19,5 +19,5 @@ To download Compass, you can use your preferred web browser.
     * Install Compass
     * Once you have downloaded Compass, double-click on the .dmg file to open the disk image within the macOS Finder.
 
-2. Drag the MongoDB Compass application to your Applications folder.
+1. Drag the MongoDB Compass application to your Applications folder.
 
