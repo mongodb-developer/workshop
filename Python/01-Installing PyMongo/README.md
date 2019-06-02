@@ -17,7 +17,7 @@ The following command will inform you as to whether or not pymongo is installed,
 ```
 python -c "import pymongo; print(pymongo.version); print(pymongo.has_c())"
 ```
-## Take if for a spin
+## Take it for a spin
 
 Here's output of a python session wherein we demonstrate the use of pymongo.
 
@@ -54,4 +54,15 @@ u'x_1'
 >>> [item["x"] for item in db.my_collection.find().limit(2).skip(1)]
 [8, 11]
 
+```
+
+## Important Note Regarding MongoDB Atlas
+
+When connecting to MongoDB Atlas instances, you will notice that the connection string, or URI as it is also referred, has the form `mongodb+srv...` rather than simple `mongodb://...`. This is a dns resource record which simplifies connecting to the cluster of MongoDB Servers that make up your instance.
+
+In order to use this form of URI, you must also install the `dnspython` library.  This has been included in the (requirements.txt)[https://github.com/mongodb-developer/workshop/blob/python/Python/01-Installing%20PyMongo/requirements.txt] file for you.
+
+```
+pymongo
+dnspython
 ```
