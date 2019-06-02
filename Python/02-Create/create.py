@@ -1,9 +1,17 @@
 # 
-# mlynn - build create example
+# mlynn - create example
 #
+import os,sys
 from pymongo import MongoClient
 client = MongoClient('localhost:27017')
 db = client.EmployeeData
+
+
+if "MONGODB_ATLAS_URI" in os.environ:
+    print ("connecting to ",os.environ.get("MONGODB_ATLAS_URI"))
+else:
+    print("No Atlas URI Set... please create a .env with a MONGODB_ATLAS_URI variable")
+    sys.exit(1)
 
 def main():
 
