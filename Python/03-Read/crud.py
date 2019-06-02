@@ -17,7 +17,7 @@ def main():
 
     while(1):
 
-        selection = input('\nSelect 1 to insert, 2 to update, 3 to read, 4 to delete\n')
+        selection = input('\nSelect 1 to insert, 2 to update, 3 to read, 4 to delete, x to Exit\n')
     
         if selection == '1':
             insert()
@@ -27,6 +27,8 @@ def main():
             read()
         elif selection == '4':
             delete()
+        elif selection == 'x':
+            sys.exit(0)
         else:
             print('\n INVALID SELECTION \n')
 
@@ -55,7 +57,14 @@ def update():
     print ("not implemented")
 
 def read():
-    print ("not implemented")
+    try:
+        empCol = db.Employees.find()
+        print('\n All data from EmployeeData Database \n')
+        for emp in empCol:
+            print (emp)
+
+    except (Exception, e):
+        print (str(e))
 
 def delete():
     print ("not implemented")
