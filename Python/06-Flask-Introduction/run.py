@@ -3,8 +3,6 @@ from pymongo import MongoClient
 import os,sys
 from classes import *
 
-# config system
-
 if "MONGODB_ATLAS_URI" in os.environ:
     print ("connecting to ",os.environ.get("MONGODB_ATLAS_URI"))
     MONGO_URI=os.environ.get("MONGODB_ATLAS_URI")
@@ -100,6 +98,14 @@ def main():
 
     return render_template('home.html', cform = cform, dform = dform, uform = uform, \
             data = data, reset = reset)
+
+@app.route('/delete/<emp>', methods=['GET','POST'])
+def delete(emp):
+    if(emp):
+        print(emp, type(emp))
+        db.Employees.delete_many({'id':int(emp)})
+
+    return redirect('/')
 
 if __name__=='__main__':
     app.run(debug=True,port=8081)

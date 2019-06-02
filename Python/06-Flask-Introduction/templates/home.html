@@ -3,53 +3,52 @@
     <title>Employee Manager</title>
     <style>
         body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-
-      .container {
-        width: 420px;
-      }
-
-      div.row {
-        border: .5px solid;
-        border-color:darkgreen;
-      }
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+        .container {
+            width: 420px;
+        }
+        div.row {
+            border: .5px solid;
+            border-color:darkgreen;
+        }
         .head {
             text-align: center;
         }
         .header {
-        padding-top: 20px;
-        padding-bottom: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
-
         .footer {
-        border-top: 1px solid #444;
-        padding-top: 20px;
-        margin-top: 20px;
-        color: #999
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: #999
         }
-
         .p {
-        text-align: center;
-        padding-top: 120px;
+            text-align: center;
+            padding-top: 120px;
         }
-
         .p a {
-        text-decoration: underline;
-        color: blue;
+            text-decoration: underline;
+            color: blue;
         }
     </style>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body class="bg-light">
-
-
     <div class="container">
         <!--  Header Section-->
         <div class="head">
             <h1>MongoDB Python Workshop</h1>
             <h2>MongoDB, Flask, PyMongo</h2>
+        </div>
+        <div class="col-md-12">
+            <form method="POST">
+                    {{ reset.hidden_tag() }}
+                    <b>Reset All Data: </b> {{ reset.reset }}
+            </form>
         </div>
         <!--  Content Area-->
         <div class="row content">
@@ -106,11 +105,15 @@
             <tbody>
             {% for i in data %}
             <tr>
-                <th>{{ i["id"] }}</th>
-                <th>{{ i["name"] }}</th>
-                <th>{{ i["email"] }} </th>
-                <th>{{ i["age"] }}</th>
-                <th>{{ i["country"] }}</th>
+                <td>{{ i["id"] }}</td>
+                <td>{{ i["name"] }}</td>
+                <td>{{ i["email"] }} </td>
+                <td>{{ i["age"] }}</td>
+                <td>{{ i["country"] }}</td>
+                <td><form method="POST" action="/delete/{{i['id']}}">
+                        <button>DELETE</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
             </tbody>
