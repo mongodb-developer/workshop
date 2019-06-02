@@ -16,7 +16,7 @@ else:
 def main():
 
     while(1):
-    # chossing option to do CRUD operations
+
         selection = input('\nSelect 1 to insert, 2 to update, 3 to read, 4 to delete\n')
     
         if selection == '1':
@@ -34,7 +34,8 @@ def insert():
     try:
         employeeId = input('Enter Employee id :')
         employeeName = input('Enter Name :')
-        employeeAge = input('Enter age :')
+        employeeAge = input('Enter Age :')
+        employeeEmail = input('Enter Email Address :')
         employeeCountry = input('Enter Country :')
         
         db.Employees.insert_one(
@@ -42,6 +43,7 @@ def insert():
                 "id": employeeId,
                 "name":employeeName,
                 "age":employeeAge,
+                "email":employeeEmail,
                 "country":employeeCountry
         })
         print('\nInserted data successfully\n')
