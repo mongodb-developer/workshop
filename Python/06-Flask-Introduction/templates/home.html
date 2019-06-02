@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <title>Employee Manager</title>
+    <style>
+        body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      .container {
+        width: 420px;
+      }
+
+      div.row {
+        border: .5px solid;
+        border-color:darkgreen;
+      }
+        .head {
+            text-align: center;
+        }
+        .header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        }
+
+        .footer {
+        border-top: 1px solid #444;
+        padding-top: 20px;
+        margin-top: 20px;
+        color: #999
+        }
+
+        .p {
+        text-align: center;
+        padding-top: 120px;
+        }
+
+        .p a {
+        text-decoration: underline;
+        color: blue;
+        }
+    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body class="bg-light">
+
+
+    <div class="container">
+        <!--  Header Section-->
+        <div class="head">
+            <h1>MongoDB Python Workshop</h1>
+            <h2>MongoDB, Flask, PyMongo</h2>
+        </div>
+        <!--  Content Area-->
+        <div class="row content">
+          <div class="col-md-4 col-sm-6">
+            <form method="POST">
+                {{ cform.hidden_tag() }}
+                <legend>Create Employee</legend>
+                <label for=name>{{ cform.name.label }}</label>
+                <div>{{ cform.name }}</div>
+                <label for=email>{{ cform.email.label }}</label>
+                <div>{{ cform.email }}</div>
+                <label for=age>{{ cform.age.label }}</label>
+                <div>{{ cform.age }}</div>
+                <label for=country>{{ cform.country.label }}</label>
+                <div>{{ cform.country }}</div>
+                <div>{{ cform.create }}</div>
+            </form>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <form  method="POST">
+                {{ uform.hidden_tag() }}
+                <legend>Update Employee</legend>
+                <label for=key>{{ uform.key.label }}</label>
+                <div>{{ uform.key }}</div>
+                <label for=name>{{ uform.name.label }}</label>
+                <div>{{ uform.name }}</div>
+                <div>{{ uform.update }}</div>
+            </form>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <form method="POST">
+                {{ dform.hidden_tag() }}
+                <fieldset>
+                    <legend>Delete Employee</legend>
+                    {{ dform.key.label }}<br>
+                    {{ dform.key }}<br>
+                    <br>OR<br><br>
+                    {{ dform.name.label }}<br>
+                    {{ dform.name }}<br><br>
+                    {{ dform.delete }}
+                </fieldset>
+            </form>
+          </div>
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                </tr>
+            </thead>  
+            <tbody>
+            {% for i in data %}
+            <tr>
+                <th>{{ i["id"] }}</th>
+                <th>{{ i["name"] }}</th>
+                <th>{{ i["email"] }} </th>
+                <th>{{ i["age"] }}</th>
+                <th>{{ i["country"] }}</th>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+</html>

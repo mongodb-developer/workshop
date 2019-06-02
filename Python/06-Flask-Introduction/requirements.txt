@@ -1,1 +1,3 @@
-Flask-Pymongo
+Flask
+Flask-WTF
+pymongo
