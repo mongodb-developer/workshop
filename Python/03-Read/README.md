@@ -15,3 +15,6 @@ export MONGODB_ATLAS_URI=mongodb+srv://<username>:<password>\@myfirstcluster-zbc
 Of course, you will need to find the correct connection string, or URI from the Atlas console. From the main Atlas management console window, find your cluster, and click on the Connect tab. 
 
 ![Connect](https://github.com/mongodb-developer/workshop/blob/python/Python/03-Read/atlas_connect.gif "Connect to Atlas MongoDB Instance")
+
+Once you've copied that place it into a .env file like the one above and `source .env` before running `crud.py`.
+

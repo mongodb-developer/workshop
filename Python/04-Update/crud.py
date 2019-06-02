@@ -1,9 +1,8 @@
 # 
-# mlynn - create example
+# mlynn - update example
 #
 import os,sys
 from pymongo import MongoClient
-
 
 if "MONGODB_ATLAS_URI" in os.environ:
     print ("connecting to ",os.environ.get("MONGODB_ATLAS_URI"))
@@ -56,10 +55,39 @@ def insert():
         print({},str(e))
 
 def update():
-    print ("not implemented")
+# Function to update record to mongo db
+    try:
+        criteria = input('\nEnter id to update\n')
+        name = input('\nEnter name to update\n')
+        age = input('\nEnter age to update\n')
+        email = input('\nEnter email to update\n')
+        country = input('\nEnter country to update\n')
+
+        db.Employees.update_one(
+            {"id": criteria},
+            {
+                "$set": {
+                    "name":name,
+                    "age":age,
+                    "email":email,
+                    "country":country
+                }
+            }
+        )
+        print("\nRecords updated successfully\n")  
+    
+    except(Exception, e):
+        print (str(e))
 
 def read():
-    print ("not implemented")
+    try:
+        empCol = db.Employees.find()
+        print('\n All data from EmployeeData Database \n')
+        for emp in empCol:
+            print (emp)
+
+    except (Exception, e):
+        print (str(e))
 
 def delete():
     print ("not implemented")

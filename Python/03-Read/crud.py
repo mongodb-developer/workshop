@@ -19,15 +19,15 @@ def main():
 
     while(1):
 
-        selection = input('\nSelect 1 to insert, 2 to update, 3 to read, 4 to delete, x to Exit\n')
-    
-        if selection == '1':
+        selection = input('\nSelect C to Create, R to read, U to Update, D to Delete, x to Exit\n')
+
+        if selection == 'C':
             insert()
-        elif selection == '2':
+        elif selection == 'U':
             update()
-        elif selection == '3':
+        elif selection == 'R':
             read()
-        elif selection == '4':
+        elif selection == 'D':
             delete()
         elif selection == 'x':
             sys.exit(0)
