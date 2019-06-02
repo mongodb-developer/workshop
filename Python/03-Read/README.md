@@ -14,4 +14,4 @@ export MONGODB_ATLAS_URI=mongodb+srv://<username>:<password>\@myfirstcluster-zbc
 
 Of course, you will need to find the correct connection string, or URI from the Atlas console. From the main Atlas management console window, find your cluster, and click on the Connect tab. 
 
-![Connect](./atlasconnect.gif "Connect to Atlas MongoDB Instance")
+![Connect](atlasconnect.gif "Connect to Atlas MongoDB Instance")
