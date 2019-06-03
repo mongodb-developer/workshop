@@ -56,40 +56,46 @@
             <form method="POST">
                 {{ cform.hidden_tag() }}
                 <legend>Create Employee</legend>
-                <label for=name>{{ cform.name.label }}</label>
-                <div>{{ cform.name }}</div>
-                <label for=email>{{ cform.email.label }}</label>
-                <div>{{ cform.email }}</div>
-                <label for=age>{{ cform.age.label }}</label>
-                <div>{{ cform.age }}</div>
-                <label for=country>{{ cform.country.label }}</label>
-                <div>{{ cform.country }}</div>
-                <div>{{ cform.create }}</div>
+                <div class="form-group">
+                    <label for=name>{{ cform.name.label }}</label>
+                    <div>{{ cform.name(class="form-control") }}</div>
+                    <label for=email>{{ cform.email.label }}</label>
+                    <div>{{ cform.email(class="form-control") }}</div>
+                    <label for=age>{{ cform.age.label }}</label>
+                    <div>{{ cform.age(class="form-control") }}</div>
+                    <label for=country>{{ cform.country.label }}</label>
+                    <div>{{ cform.country(class="form-control") }}</div>
+                    <div>{{ cform.create }}</div>
+                </div>
             </form>
           </div>
           <div class="col-md-4 col-sm-6">
             <form  method="POST">
                 {{ uform.hidden_tag() }}
                 <legend>Update Employee</legend>
-                <label for=key>{{ uform.key.label }}</label>
-                <div>{{ uform.key }}</div>
-                <label for=name>{{ uform.name.label }}</label>
-                <div>{{ uform.name }}</div>
-                <div>{{ uform.update }}</div>
+                <div class="form-group">
+                    <label for=key>{{ uform.key.label }}</label>
+                    <div>{{ uform.key(class="form-control input-xs") }}</div>
+                    <label for=name>{{ uform.name.label }}</label>
+                    <div>{{ uform.name(class="form-control") }}</div>
+                    <div>{{ uform.update }}</div>
+                </div>
             </form>
           </div>
           <div class="col-md-4 col-sm-6">
             <form method="POST">
                 {{ dform.hidden_tag() }}
-                <fieldset>
                     <legend>Delete Employee</legend>
-                    {{ dform.key.label }}<br>
-                    {{ dform.key }}<br>
+                    <div class="form-group">
+                        <label for=key>{{ dform.key.label }}</label>
+                        <div>{{ dform.key(class="form-control input-xs") }}</div>
+                    </div>
                     <br>OR<br><br>
-                    {{ dform.name.label }}<br>
-                    {{ dform.name }}<br><br>
-                    {{ dform.delete }}
-                </fieldset>
+                    <div class="form-group">
+                        <label for=name>{{ dform.name.label }}</label>
+                        <div>{{ dform.name(class="form-control input-xs") }}</div>
+                        <div>{{ dform.delete }}</div>
+                    </div>
             </form>
           </div>
           <table class="table">
@@ -100,6 +106,7 @@
                     <th>Name</th>
                     <th>Age</th>
                     <th>Country</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>  
             <tbody>
@@ -110,7 +117,8 @@
                 <td>{{ i["email"] }} </td>
                 <td>{{ i["age"] }}</td>
                 <td>{{ i["country"] }}</td>
-                <td><form method="POST" action="/delete/{{i['id']}}">
+                <td>
+                    <form method="POST" action="/delete/{{i['id']}}">
                         <button>DELETE</button>
                     </form>
                 </td>
