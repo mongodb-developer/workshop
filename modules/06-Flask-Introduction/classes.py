@@ -19,4 +19,4 @@ class UpdateEmployee(FlaskForm):
     update = SubmitField('Update')
 
 class ResetEmployee(FlaskForm):
-    reset = SubmitField('Reset')
+    reset = SubmitField('Reset All Data - Caution!')

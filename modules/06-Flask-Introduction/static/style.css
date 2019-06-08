@@ -1,0 +1,37 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+div.row {
+    border: .5px solid;
+    border-color:darkgreen;
+}
+.head {
+    text-align: center;
+}
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    margin-top: 20px;
+    color: #999
+}
+.p {
+    text-align: center;
+    padding-top: 120px;
+}
+.p a {
+    text-decoration: underline;
+    color: blue;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #12924F;
+    border-color: #12924F;
+}
