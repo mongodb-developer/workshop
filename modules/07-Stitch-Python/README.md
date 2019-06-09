@@ -27,4 +27,4 @@ You should have already completed the MongoDB Atlas module of this workshop and 
     * Select a cluster in your project in your project from the Link to Cluster dropdown. Stitch will automatically create a MongoDB service that is linked to this cluster.
     * Enter a name for the service that Stitch will create in the Stitch Service Name field.
     * Select a deployment model and deployment region for your application.
-    * lick Create.
+    * Click Create.
