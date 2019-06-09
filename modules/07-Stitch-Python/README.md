@@ -8,4 +8,4 @@ Because MongoDB Stitch functions are JavaScript based, we will leverage a featur
 
 You should have already completed the MongoDB Atlas module of this workshop and should therefore already have a cluster available to you. If you have not yet completed this module, go back and review module 01 - MongoDB Atlas to ensure that you have a working cluster with sample data available.  Additionally, you may wish to review the [Atlas Getting Started Documentation](https://docs.atlas.mongodb.com/getting-started/).
 
-Once you've completed building an Atlas cluster and loading sample data, move on to step 1. Creating a Stitch App.
+Once you've completed building an Atlas cluster and loading sample data, move on to [step 1. Creating a Stitch App](https://github.com/mongodb-developer/workshop/blob/python/modules/07-Stitch-Python/01-Create-Stitch-App.md).
