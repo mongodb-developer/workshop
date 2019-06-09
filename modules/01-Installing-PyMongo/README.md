@@ -2,7 +2,7 @@
 
 ## Introduction
 
-PyMongo is the preferred driver for MongoDB. PyMongo is the (Python Package Index)[http://pypi.python.org/pypi/pymongo/].
+PyMongo is the preferred driver for MongoDB. PyMongo is the [Python Package Index](http://pypi.python.org/pypi/pymongo/).
 
 We recommend installing pymongo using pip on all platforms.
 
@@ -60,7 +60,7 @@ u'x_1'
 
 When connecting to MongoDB Atlas instances, you will notice that the connection string, or URI as it is also referred, has the form `mongodb+srv...` rather than simple `mongodb://...`. This is a dns resource record which simplifies connecting to the cluster of MongoDB Servers that make up your instance.
 
-In order to use this form of URI, you must also install the `dnspython` library.  This has been included in the (requirements.txt)[https://github.com/mongodb-developer/workshop/blob/python/Python/01-Installing%20PyMongo/requirements.txt] file for you.
+In order to use this form of URI, you must also install the `dnspython` library.  This has been included in the [requirements.txt](https://github.com/mongodb-developer/workshop/blob/python/Python/01-Installing%20PyMongo/requirements.txt) file for you.
 
 ```
 pymongo
