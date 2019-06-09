@@ -56,7 +56,7 @@ u'x_1'
 
 ```
 
-## Important Note Regarding MongoDB Atlas
+## Important Note Regarding Connecting to MongoDB Atlas
 
 When connecting to MongoDB Atlas instances, you will notice that the connection string, or URI as it is also referred, has the form `mongodb+srv...` rather than simple `mongodb://...`. This is a dns resource record which simplifies connecting to the cluster of MongoDB Servers that make up your instance.
 
