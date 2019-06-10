@@ -28,7 +28,7 @@ This workshop will build on previous content in the workshop series and explain 
 
 ### Module 6 - Building an Application using Flask and PyMongo
 
-[This module(https://github.com/mongodb-developer/workshop/tree/python/modules/06-Flask-Introduction)] will build on the previous modules and demonstrate how to build a working web application leveraging Flask, and PyMongo.
+[This module](https://github.com/mongodb-developer/workshop/tree/python/modules/06-Flask-Introduction)] will build on the previous modules and demonstrate how to build a working web application leveraging Flask, and PyMongo.
 
 ### Module 7 - Stitch and Python
 
