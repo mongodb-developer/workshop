@@ -66,3 +66,10 @@ In order to use this form of URI, you must also install the `dnspython` library.
 pymongo
 dnspython
 ```
+
+
+## Navigation
+
+| Back | You are Here | Next |
+| ---- | ------------ | ---- |
+| [Home](https://github.com/mongodb-developer/workshop) | PyMongo Introduction - Installing PyMongo | [Creating/Inserting with PyMongo](https://github.com/mongodb-developer/workshop/tree/python/modules/02-Create) |
