@@ -1,6 +1,6 @@
 ## MongoDB Developer Workshop - Atlas Module Introduction
 
-![MongoDB](https://github.com/mongodb-developer/workshop/blob/atlas/Atlas/images/00-mongodb-logo.jpg "MongoDB")
+![MongoDB](https://github.com/mongodb-developer/workshop/blob/atlas/images/00-mongodb-logo.jpg "MongoDB")
 
 ### Table of Contents
 
