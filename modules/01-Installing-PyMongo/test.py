@@ -1,8 +1,9 @@
 import pymongo
+import unittest
 import sys
-# pprint library is used to make the output look more pretty
 from pprint import pprint
 import os
+
 try:  
    ATLAS_URI = os.environ.get("MONGODB_ATLAS_URI")
 except KeyError: 

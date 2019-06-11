@@ -70,6 +70,6 @@ dnspython
 
 ## Navigation
 
-| Back | You are Here | Next |
+| < Back | You are Here | Next > |
 | ---- | ------------ | ---- |
-| [Home](https://github.com/mongodb-developer/workshop) | PyMongo Introduction - Installing PyMongo | [Creating/Inserting with PyMongo](https://github.com/mongodb-developer/workshop/tree/python/modules/02-Create) |
+| [<< Home](https://github.com/mongodb-developer/workshop) | PyMongo Introduction - Installing PyMongo | [Creating/Inserting with PyMongo >>](https://github.com/mongodb-developer/workshop/tree/python/modules/02-Create) |

@@ -18,3 +18,8 @@ Of course, you will need to find the correct connection string, or URI from the 
 
 Once you've copied that place it into a .env file like the one above and `source .env` before running `crud.py`.
 
+## Navigation
+
+| < Back | You are Here | Next > |
+| ---- | ------------ | ---- |
+| [<< Creating](https://github.com/mongodb-developer/workshop/tree/python/modules/02-Create) | Reading | 

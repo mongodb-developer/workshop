@@ -14,4 +14,8 @@ client = MongoClient('localhost:27017')
 
 Now, this will connect to an instance of MongoDB running on your localhost. Since this workshop is built using MongoDB Atlas, you will need to find and copy the connection string to the free instance you created from the initial module of this workshop.
 
+## Navigation
 
+| < Back | You are Here | Next > |
+| ---- | ------------ | ---- |
+| [<< Installing](https://github.com/mongodb-developer/workshop/tree/python/modules/01-Installing-PyMongo) | Creating / Inserting | [Reading >>](https://github.com/mongodb-developer/workshop/tree/python/modules/03-Read) |
