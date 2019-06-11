@@ -4,9 +4,9 @@
 
 ### Table of Contents
 
-* 01 - [Deploy a Cluster](https://github.com/mongodb-developer/workshop/tree/atlas/Atlas/01-Deploy-Cluster)
-* 02 - [Configure Security Settings](https://github.com/mongodb-developer/workshop/tree/atlas/Atlas/02-Configure-Security)
-* 03 - [Load Sample Data](https://github.com/mongodb-developer/workshop/tree/atlas/Atlas/03-Load-Sample-Data)
+* 01 - [Deploy a Cluster](https://github.com/mongodb-developer/workshop/tree/atlas/01-Deploy-Cluster)
+* 02 - [Configure Security Settings](https://github.com/mongodb-developer/workshop/tree/atlas/02-Configure-Security)
+* 03 - [Load Sample Data](https://github.com/mongodb-developer/workshop/tree/atlas/03-Load-Sample-Data)
 
 ## Introduction
 
