@@ -6,7 +6,7 @@ We’ll be using MongoDB Atlas, our fully managed MongoDB-as-a-service, for this
 ### Create a Free Tier Cluster
 #### Click Build a Cluster
 
-![Create a Cluster](https://github.com/mongodb-developer/workshop/blob/atlas/Atlas//images/02-create-cluster.png "Create a Cluster")
+![Create a Cluster](https://github.com/mongodb-developer/workshop/blob/atlas/Atlas/images/02-create-cluster.png "Create a Cluster")
 
 Take a moment to browse the options (Provider & Region, Cluster Tier, Version, Backup, …). For our workshop, select AWS as the Cloud Provider:
 

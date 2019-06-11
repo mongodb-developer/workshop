@@ -1,12 +1,12 @@
 ## MongoDB Developer Workshop - Atlas Module Introduction
 
-![MongoDB](https://github.com/mongodb-developer/workshop/blob/atlas/images/00-mongodb-logo.jpg "MongoDB")
+![MongoDB](images/00-mongodb-logo.jpg "MongoDB")
 
 ### Table of Contents
 
-* 01 - [Deploy a Cluster](https://github.com/mongodb-developer/workshop/tree/atlas/01-Deploy-Cluster)
-* 02 - [Configure Security Settings](https://github.com/mongodb-developer/workshop/tree/atlas/02-Configure-Security)
-* 03 - [Load Sample Data](https://github.com/mongodb-developer/workshop/tree/atlas/03-Load-Sample-Data)
+* 01 - [Deploy a Cluster](01-Deploy-Cluster/)
+* 02 - [Configure Security Settings](02-Configure-Security/)
+* 03 - [Load Sample Data](03-Load-Sample-Data/)
 
 ## Introduction
 
