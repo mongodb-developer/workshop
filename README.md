@@ -1,63 +1,114 @@
-# MongoDB Developer Workshops
+# MongoDB Stitch Data Enrichment
 
-This repository contains different workshops, each of them is composed of several modules built in git branches.
+MongoDB Stitch is the serverless platform you can use to build backend services on top of MongoDB Atlas.
 
-In this README, you will find information about each workshop and which branches have to be used.
+Let's build our first mini application with MongoDB Stitch. This workshop assumes you already have an Atlas cluster ready to use. If that's not the case, please go to the `atlas` branch first.
 
-## Modules
+## What's the target?
 
-Each module lives in a git branch. Below, you will find a description of each of them.
+In this workshop, we will write a movie title into our MongoDB Atlas cluster using a REST API POST webhook in MongoDB Stitch.
 
-To navigate from one branch to another, you can use the `branch` button in this Github repository.
+Then, using a trigger listening to new insertions in the movies collection, we will start a Stitch Function to enrich our document with data from the [OMDB API](http://www.omdbapi.com/).
 
-![Github branch navigation](images/branches.png)
+A movie document at the end should look like this.
 
-- The `atlas` workshop will teach you
-  - how to setup a MongoDB Atlas free tier cluster,
-  - how to setup the security to access your cluster,
-  - how to import the sample data sets.
-- The `stitch-data-enrichment` branch will teach you
-  - how to create a Stitch application,
-  - how to create an HTTP service and a POST webhook,
-  - how to setup a trigger and enrich your data using a REST API.
-- The `compass` branch will teach you
-  - how to setup MongoDB Compass,
-  - how to create a geo-spatial query,
-  - how to use the aggregation pipeline builder.
-- WIP - The `python` contains a workshop around pymongo
-- WIP - The `python-solution` contains the solution of the workshop in the `python` branch
-- Any other branch you might see is a WIP.
+![Document enriched](images/doc-enriched.png)
 
-## Workshops
+## Lab: Create a Stitch Application
 
-### #1 MongoDB Atlas and data enrichment in MongoDB Stitch
+- In MongoDB Atlas, click on Stitch on the left side and create a new Stitch application.
+- You can use the deployment model *Local* and deploy in *Ireland* to keep it close to your Atlas cluster if you deployed your cluster in Ireland.
 
-This workshop is composed of the Atlas workshop and the Stitch Data Enrichment workshop.
+## Lab: Create a REST API
 
-You will need to complete the modules in the `atlas` and the `stitch-data-enrichment` branches.
+We want to create a simple REST API to read and write movie titles to MongoDB.
 
-You do not need to download this Github repository to complete this workshop. You just need to follow the README files in each branch.
+- Create a new HTTP Service.
+- Create an incoming webhook for your POST route and secure your REST API with a *"secret as query param"*.
+- Go to the webhook settings and try the provided CURL command. If you don't have CURL, use Postman.
+- Verify in the *Logs* that you received something.
  
-### #2 MongoDB Atlas and Compass
-
-This workshop is composed of the Atlas workshop and the Compass workshop.
-
-You will need to complete the modules in the `atlas` and the `compass` branches.
-
-You do not need to download this Github repository to complete this workshop. You just need to follow the README files in each branch.
-
-### #3 MongoDB Atlas and PyMongo workshop
-
-This workshop is composed of the Atlas workshop and the PyMongo workshop.
-
-You will need to complete the modules in the `atlas` and the `python` branches.
-
-If you are stuck or you want to check that you have the most optimal solution, you will find the solution in the `python-solution` branch.
-
-You need to clone this repository and checkout the `python` branch to complete the python code.
-
-```sh
-git clone git@github.com:mongodb-developer/workshop.git
-cd workshop
-git checkout python
+![Load Sample Dataset](images/logs.png)
+ 
+- Now let's replace the function and write the POST body to MongoDB. Replace the function code with this:
+```js
+exports = function(payload, response) {
+  const mongodb = context.services.get("mongodb-atlas");
+  const movies = mongodb.db("stitch").collection("movies");
+  var body = EJSON.parse(payload.body.text());
+  movies.insertOne(body)
+  .then(result => {
+    response.setStatusCode(201);
+  });
+};
 ```
+
+- Now send your CURL command with the body : `'{"Title":"Titanic"}'`
+- Verify in MongoDB Atlas that your new document has been written correctly.
+ 
+![Load Sample Dataset](images/titanic.png)
+
+- [optional] Repeat the same operations to implement a GET all titles route.
+- Here is [some doc](https://docs.mongodb.com/stitch/mongodb/actions/collection.find/#finding-all-documents-in-a-collection) to help you.
+- Don't forget that this time, you are returning results (check the webhook settings).
+
+<details><summary>Click to see the answer</summary>
+ 
+```js
+exports = function() {
+  const mongodb = context.services.get("mongodb-atlas");
+  const movies = mongodb.db("stitch").collection("movies");
+  return movies.find().toArray();
+};
+```
+</details>
+
+## Lab: Trigger
+
+Now that we can write our awesome movie titles in MongoDB, we want to enrich our MongoDB document with some extra information about them.
+
+- Let's create a free account on the [OMDB API](http://www.omdbapi.com/apikey.aspx). We will use them as a micro service.
+- Once you have the API key, save it as a *Secret Value* in Stitch.
+
+![Load Sample Dataset](images/secret.png)
+
+- Create a Trigger. It will listen to all the inserts and trigger a Stitch Function each time a document is inserted.
+- You will need to create the Stitch Function. Take some time to read it and use the following code:
+
+```js
+exports = function(changeEvent) {
+  const docId = changeEvent.documentKey._id;
+  const title = encodeURIComponent(changeEvent.fullDocument.Title.trim());
+  const movies = context.services.get("mongodb-atlas").db("stitch").collection("movies");
+  const apikey = context.values.get("apikey");
+  const omdb_url = "http://www.omdbapi.com/?apikey=" + apikey + "&t=" + title;
+  
+  return context.http
+    .get({ url: omdb_url })
+    .then(resp => {
+    console.log(resp.body.text());
+    var doc = EJSON.parse(resp.body.text());
+    if (doc.Response == "False") {
+      movies.deleteOne({"_id":docId});
+    } else {
+      movies.updateOne({"_id":docId}, {$set: doc});
+    }
+  });
+};
+```
+
+- Insert a new movie in your collection using the POST route you created earlier.
+- Check the result in your collection in MongoDB Atlas.
+- If you have a problem, remember to check the logs.
+
+# Conclusion
+
+I hope you liked this workshop. If you want to see a more advanced "Mini Movie Collection" project, you can have a look on Github: https://github.com/MaBeuLux88/mongodb-stitch-movie-collection.
+
+This solution contains a few extra features: 
+- A website using the Hosting feature of MongoDB Stitch.
+- Twilio integration so we can send a movie title by text message with our phone.
+- Google OAuth for the authentication.
+- Date parsing to ISO Date with a sub function.
+- A second trigger is called on the update event (after the document is enriched) to calculate some stats.
+- There are scripts leveraging the MongoDB Stitch CLI to help you import this project in your own Stitch Project.
