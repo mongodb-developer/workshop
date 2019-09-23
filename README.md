@@ -43,13 +43,14 @@ exports = function(payload, response) {
 };
 ```
 
+- Note: Don't forget to `Save` this function and also deploy it with the `Review & Deploy Changes` button at the top.
 - Now send your CURL command with the body : `'{"Title":"Titanic"}'`
 - Verify in MongoDB Atlas that your new document has been written correctly.
  
 ![Load Sample Dataset](images/titanic.png)
 
 - [optional] Repeat the same operations to implement a GET all titles route.
-- Here is [some doc](https://docs.mongodb.com/stitch/mongodb/actions/collection.find/#finding-all-documents-in-a-collection) to help you.
+- Here is [some doc](https://docs.mongodb.com/stitch/mongodb/actions/collection.find/#collection.find) to help you.
 - Don't forget that this time, you are returning results (check the webhook settings).
 
 <details><summary>Click to see the answer</summary>
@@ -67,7 +68,7 @@ exports = function() {
 
 Now that we can write our awesome movie titles in MongoDB, we want to enrich our MongoDB document with some extra information about them.
 
-- Let's create a free account on the [OMDB API](http://www.omdbapi.com/apikey.aspx). We will use them as a micro service.
+- Let's create a free account on the [OMDB API](http://www.omdbapi.com/apikey.aspx). We will use it as a micro service.
 - Once you have the API key, save it as a *Secret Value* in Stitch.
 
 ![Load Sample Dataset](images/secret.png)
@@ -97,6 +98,7 @@ exports = function(changeEvent) {
 };
 ```
 
+- Don't forget to `Save` your function and `Review and Deploy Changes`.
 - Insert a new movie in your collection using the POST route you created earlier.
 - Check the result in your collection in MongoDB Atlas.
 - If you have a problem, remember to check the logs.
