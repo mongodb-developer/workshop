@@ -8,7 +8,7 @@ Let's build our first mini application with MongoDB Stitch. This workshop assume
 
 In this workshop, we will write a movie title into our MongoDB Atlas cluster using a REST API POST webhook in MongoDB Stitch.
 
-Then, using a trigger listening to new insertions in the movies collection, we will start a Stitch Function to enrich our document with data from the [OMDB API](http://www.omdbapi.com/).
+Then, using a trigger listening for insertions into the `movies` collection, we will start a Stitch Function to enrich our document with data from the [OMDB API](http://www.omdbapi.com/).
 
 A movie document at the end should look like this.
 
@@ -25,10 +25,10 @@ We want to create a simple REST API to read and write movie titles to MongoDB.
 
 - Create a new HTTP Service.
 - Create an incoming webhook for your POST route and secure your REST API with a *"secret as query param"*.
-- Go to the webhook settings and try the provided CURL command. If you don't have CURL, use Postman.
+- Go to the webhook settings and try the provided CURL command. If you don't have CURL, use [Postman](https://www.getpostman.com/downloads/).
 - Verify in the *Logs* that you received something.
  
-![Load Sample Dataset](images/logs.png)
+![Stitch logs](images/logs.png)
  
 - Now let's replace the function and write the POST body to MongoDB. Replace the function code with this:
 ```js
@@ -47,10 +47,10 @@ exports = function(payload, response) {
 - Now send your CURL command with the body : `'{"Title":"Titanic"}'`
 - Verify in MongoDB Atlas that your new document has been written correctly.
  
-![Load Sample Dataset](images/titanic.png)
+![Titanic document](images/titanic.png)
 
 - [optional] Repeat the same operations to implement a GET all titles route.
-- Here is [some doc](https://docs.mongodb.com/stitch/mongodb/actions/collection.find/#collection.find) to help you.
+- Check the [docs](https://docs.mongodb.com/stitch/mongodb/actions/collection.find/#collection.find) if you need some help.
 - Don't forget that this time, you are returning results (check the webhook settings).
 
 <details><summary>Click to see the answer</summary>
