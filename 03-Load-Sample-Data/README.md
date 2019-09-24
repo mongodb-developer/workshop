@@ -1,6 +1,6 @@
 ## Load Sample Datasets
 
-MongoDB Atlas comes complete with sample datasets that can be loaded into your cluster right from the web administrative interface.
+MongoDB Atlas comes complete with sample datasets that can be loaded into your cluster right from the web administrative interface (click on the `...` button against your Atlas cluster.
 
 ![Sample Datasets](../images/05-sample-datasets.png "Sample Datasets")
 
@@ -15,4 +15,4 @@ Once loaded, to view your sample data by click your cluster’s Collections butt
 * sample_training
 * sample_weatherdata
 
-For details on the collections and documents included in these datasets, see Available Sample Datasets.
+For details on the collections and documents included in these datasets, see [Sample Datasets for Atlas Clusters](https://docs.atlas.mongodb.com/sample-data/).
