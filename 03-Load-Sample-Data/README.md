@@ -1,6 +1,6 @@
 ## Load Sample Datasets
 
-MongoDB Atlas comes complete with sample datasets that can be loaded into your cluster right from the web administrative interface (click on the `...` button against your Atlas cluster.
+MongoDB Atlas comes complete with sample datasets that can be loaded into your cluster right from the web administrative interface (click on the `...` button against your Atlas cluster).
 
 ![Sample Datasets](../images/05-sample-datasets.png "Sample Datasets")
 
