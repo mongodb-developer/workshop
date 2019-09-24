@@ -1,4 +1,4 @@
-## Module 1: Deploying an Atlas Cluster
+## Deploying an Atlas Cluster
 
 Create an Account or Log In to Atas
 We’ll be using MongoDB Atlas, our fully managed Database as a Service, for this workshop. Go to [https://cloud.mongodb.com](https://cloud.mongodb.com) and either create a new account or log into an existing account you may have previously created.
