@@ -16,8 +16,8 @@ To navigate from one branch to another, you can use the `branch` button in this 
   - how to setup a MongoDB Atlas free tier cluster,
   - how to setup the security to access your cluster,
   - how to import the sample data sets.
-- The `stitch-data-enrichment` branch will teach you
-  - how to create a Stitch application,
+- The `realm-data-enrichment` branch will teach you
+  - how to create a Realm application,
   - how to create an HTTP service and a POST webhook,
   - how to setup a trigger and enrich your data using a REST API.
 - The `compass` branch will teach you
@@ -30,11 +30,11 @@ To navigate from one branch to another, you can use the `branch` button in this 
 
 ## Workshops
 
-### #1 MongoDB Atlas and data enrichment in MongoDB Stitch
+### #1 MongoDB Atlas and data enrichment in MongoDB Realm
 
-This workshop is composed of the Atlas workshop and the Stitch Data Enrichment workshop.
+This workshop is composed of the Atlas workshop and the Realm Data Enrichment workshop.
 
-You will need to complete the modules in the `atlas` and the `stitch-data-enrichment` branches.
+You will need to complete the modules in the `atlas` and the `realm-data-enrichment` branches.
 
 You do not need to download this Github repository to complete this workshop. You just need to follow the README files in each branch.
  
