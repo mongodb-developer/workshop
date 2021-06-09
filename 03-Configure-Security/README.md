@@ -1,14 +1,14 @@
 ## Security Configuration
 
-Atlas only allows client connections to the cluster from entries in the project’s whitelist. Each entry is either a single IP address or a CIDR-notated range of addresses. 
+Atlas only allows client connections to the cluster from entries in the project’s IP access list. Each entry is either a single IP address or a CIDR-notated range of addresses. 
 
 MongoDB Atlas uses several mechanisms to ensure the security of your databases and collections. This section will walk you through the process of configuring these options.
 
-### IP Whitelisting
+### IP Access List
 
-To add an entry to the whitelist, from the Clusters view, select "Network Access" under Security in the left-hand menu, then Add IP Address. Atlas supports creating temporary whitelist entries that automatically expire within a user-configurable 7-day period.
+To add an entry to the IP access list, from the Clusters view, select "Network Access" under Security in the left-hand menu, then Add IP Address. Atlas supports creating temporary IP entries that automatically expire within a user-configurable 7-day period:
 
-![Add IP Whitelists](../images/04-add-ip-whitelist-entry.png "Add IP Whitelists")
+![Add IP access list entry](../images/04-add-ip-access-list-entry.png "Add IP access list entry")
 
 Use the convenient `ADD CURRENT IP ADDRESS` button to automatically add your current IP Address to the list of whitelisted addresses.
 
@@ -22,6 +22,4 @@ MongoDB users are separate from users of the Atlas UI/API. MongoDB users have ac
 
 Next, we'll navigate back `ATLAS/Clusters` on your cluster management console.
 
-Now, click the `CONNECT` button 
-
-
+Now, click the `CONNECT` button to see various ways to access your database – you don't need to do anything at this point.
