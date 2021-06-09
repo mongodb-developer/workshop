@@ -11,11 +11,11 @@ We’ll be using MongoDB Atlas, our fully managed Database as a Service, for thi
 
 Opt to create a "Shared Cluster" so that you can use the free tier:
 
-![Choose to create a shared cluster](../images/02-create-shared-cluster.png) "Opt for a shared cluster"
+![Choose to create a shared cluster](../images/02-create-shared-cluster.png "Opt for a shared cluster")
 
 Take a moment to browse the options (Provider & Region, Cluster Tier, Version, Backup, …):
 
-![Create a Cluster](../images/02-create-cluster.png "Create a Cluster")
+![Create a Cluster](../images/02-pick-cluster-options.png "Create a Cluster")
 
 Make sure that you opt for the "M0" free-tier.
 
@@ -30,4 +30,3 @@ Now, click create to create the cluster:
 Next, you will see your cluster with a blue banner along the top indicating that changes are being deployed. This will take aa couple minutes to complete the provisioning process:
 
 ![Deploying Cluster](..//images/02-deploying-cluster.png "Deploying Cluster")
-
