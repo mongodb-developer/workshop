@@ -88,7 +88,7 @@ Now that we can write our awesome movie titles in MongoDB, we want to enrich our
 
 - Create a database Trigger. It will listen to all the inserts and trigger a Realm Function each time a document is inserted:
 
-![Create a database trigger to run on inserts](database-trigger.png "Create a database trigger to run on inserts")
+![Create a database trigger to run on inserts](images/database-trigger.png "Create a database trigger to run on inserts")
 
 - You will need to create the Realm Function. Take some time to read it and use the following code:
 
