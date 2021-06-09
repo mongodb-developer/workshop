@@ -15,7 +15,7 @@ Opt to create a "Shared Cluster" so that you can use the free tier:
 
 Take a moment to browse the options (Provider & Region, Cluster Tier, Version, Backup, …):
 
-![Create a Cluster - Choose AWS](../images/02-create-cluster-choose-aws.png "Create a Cluster - Choose AWS")
+![Create a Cluster](../images/02-create-cluster.png "Create a Cluster")
 
 Make sure that you opt for the "M0" free-tier.
 
