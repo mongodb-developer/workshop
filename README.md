@@ -19,19 +19,19 @@ A movie document at the end should look like this.
 - In MongoDB Atlas, click on Realm on the left side and create a new Realm application.
 - You can use the deployment model *Local*. Ideally, deploy it to the same region as you used to create your cluster:
 
-![Create a Realm app](create-realm-app "Create a Realm app")
+![Create a Realm app](images/create-realm-app.png "Create a Realm app")
 
 ## Lab: Create a REST API
 
 **Note:** You'll often see this banner – yiour changes don't take effect until you click the button:
 
-![Click REVIEW DRAFT & DEPLOY](review-deploy.png "Click REVIEW DRAFT & DEPLOY")
+![Click REVIEW DRAFT & DEPLOY](images/review-deploy.png "Click REVIEW DRAFT & DEPLOY")
 
 We want to create a simple REST API to read and write movie titles to MongoDB.
 
 - Create a new HTTP Service:
 
-![Create a HTTP service](create-http-service.png "Create a HTTP service")
+![Create a HTTP service](images/create-http-service.png "Create a HTTP service")
 
 - Create an incoming webhook for your `POST` route and secure your REST API with a *"secret as query param"*. Turn on "Log Function Arguments". Set "Authentication" to "System"
 - Go to the webhook settings and try the provided CURL command. If you don't have CURL, use [REQBIN](https://reqbin.com/curl) or [Postman](https://www.postman.com/). Remember to include your secret.
