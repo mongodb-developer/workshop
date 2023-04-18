@@ -13,20 +13,20 @@ To navigate from one branch to another, you can use the `branch` button in this 
 ![Github branch navigation](images/branches.png)
 
 - The `atlas` workshop will teach you
-  - how to set up a MongoDB Atlas free tier cluster,
+  - how to set up a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/) free tier cluster,
   - how to set up the security to access your cluster,
   - how to import the sample data sets.
 - The `realm-web-sdk` branch will teach you
-  - how to create an application in Atlas App Services,
+  - how to create an application in [Atlas App Services](https://www.mongodb.com/docs/atlas/app-services/),
   - how to set up your application to access data in MongoDB Atlas using the Realm Web SDK.
 - [Need rework] The `data-enrichment` branch will teach you
-  - how to create an application in Atlas App Services,
-  - how to create an HTTPS service and a POST webhook,
+  - how to create an application in [Atlas App Services](https://www.mongodb.com/docs/atlas/app-services/),
+  - how to create an [HTTPS service](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-endpoints/) and a POST webhook,
   - how to set up a trigger and enrich your data using a REST API.
 - [Need rework] The `compass` branch will teach you
-  - how to set up MongoDB Compass,
-  - how to create a geo-spatial query,
-  - how to use the aggregation pipeline builder.
+  - how to set up [MongoDB Compass](https://www.mongodb.com/docs/compass/current/),
+  - how to create a [geo-spatial query](https://www.mongodb.com/docs/manual/geospatial-queries/),
+  - how to use the [aggregation pipeline builder](https://www.mongodb.com/docs/compass/beta/aggregation-pipeline-builder/).
 - [WIP] - The `python` contains a workshop around pymongo
 - [WIP] - The `python-solution` contains the solution of the workshop in the `python` branch
 - Any other branch you might see is a WIP.
