@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/png" href="https://www.mongodb.com/assets/images/global/favicon.ico"/>
+    <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>My Todos List</title>
+</head>
+<body>
+<h1>My Movies</h1>
+<div>
+    <!-- Login anonymously -->
+    <input type="submit" value="LOGIN" onClick="login()">
+    <!-- Insert Todo -->
+    <input type="submit" value="INSERT" onClick="insert_todo()">
+    <!-- Finds todos in todos collection -->
+    <input type="submit" value="FIND" onClick="find_todos()">
+</div>
+<!-- Using this div to display the user ID -->
+<div id="user"></div>
+<!-- Using this div to show the 20 movie titles -->
+<div id="todos"></div>
+<!-- Inside this file are the functions used above: login() and find_movies() -->
+<script src="javascript.js"></script>
+</body>
+</html>
