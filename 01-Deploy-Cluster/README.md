@@ -1,34 +1,47 @@
 ## Deploying an Atlas Cluster
 
+We’ll be using MongoDB Atlas, our fully managed Database as a Service, for this workshop.
+
 Create an Account or Log In to [Atlas](https://cloud.mongodb.com).
 
-We’ll be using MongoDB Atlas, our fully managed Database as a Service, for this workshop. Go to [https://cloud.mongodb.com](https://cloud.mongodb.com) and either create a new account or log into an existing account you may have previously created. Create a new Atlas project to use in this workshop.
+Create a new Atlas project to use in this workshop if you are using an existing account.
 
-*Note that the Atlas team sometimes experiment with the UI to make things more intuitive – that means that your experience might not match what you see here.*
+> Note that the Atlas team sometimes experiment with the UI to make things more intuitive – that means that your experience might not match what you see here.
 
 ### Create a Free Tier Cluster
-#### Click Build a Cluster
 
-![Create a Cluster](../images/02-create-cluster.png "Create a Cluster")
+You goal for this section is to Create a MongoDB Atlas M0 cluster which is free forever. 
 
-Opt to create a "Shared Cluster" so that you can use the free tier:
+Depending if you are using a brand new account or an existing one, your experience might differ a little but it should look like this:
 
-![Choose to create a shared cluster](../images/02-create-shared-cluster.png "Opt for a shared cluster")
+![Build a database button](../images/01-create-cluster-button.png)
 
-Take a moment to browse the options (Provider & Region, Cluster Tier, Version, Backup, …):
+Then you can select:
+- your cluster tier: here we are using a free M0 cluster.
+- your cloud provider: up to you.
+- your region: a region near your current location will reduce the latency.
+- your fancy cluster name.
 
-![Create a Cluster](../images/02-pick-cluster-options.png "Create a Cluster")
+![Create the M0 cluster](../images/01-create-M0.png)
 
-Make sure that you opt for the "M0" free-tier.
+Before you move to the next step, take a moment to explore all the options in the `Access Advanced Configuration`.
 
-Leave the remaing options set to the defaults and skip down to the bottom section where you can set the Cluster Name.
+Take a moment to browse the options (Provider & Region, Cluster Tier, Version, Backup, …).
 
-Set the Cluster Name - This can be whatever you like.
+![Explore cluster options](../images/01-explore-cluster-options.png)
 
-Now, click create to create the cluster: 
+Notice that MongoDB Atlas supports different type of clusters: 
 
-![Click Create](..//images/02-create-cluster-click-create.png "Click Create")
+- Serverless
+- Dedicated
+- Shared
 
-Next, you will see your cluster with a blue banner along the top indicating that changes are being deployed. This will take aa couple minutes to complete the provisioning process:
+Dedicated clusters offer many options. Fell free to explore them.
 
-![Deploying Cluster](..//images/02-deploying-cluster.png "Deploying Cluster")
+If you haven't clicked the `Create` button to create your M0 cluster yet, you can do it now. 
+
+In the `Data Services` tab, you'll see your cluster being deployed. The provisioning process will take a couple of minutes to complete.
+
+![Deploying Cluster](../images/01-deploying-cluster.png)
+
+You can now head to [Load Sample Data](../02-Load-Sample-Data/) section.

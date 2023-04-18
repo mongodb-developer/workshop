@@ -1,6 +1,6 @@
-## MongoDB Developer Workshop - Atlas Module Introduction
+## MongoDB Developer Workshop - Atlas Module
 
-![MongoDB](images/00-mongodb-logo.jpg "MongoDB")
+![MongoDB](images/00-mongodb-logo.png "MongoDB")
 
 ### Table of Contents
 
@@ -10,12 +10,15 @@
 
 ## Introduction
 
-This hands-on workshop is designed to familiarize you with all aspects of MongoDB, from deploying a cluster, to loading data to creating services to access that data. 
+This hands-on workshop is designed to help you start working with MongoDB Atlas. In this module, you'll learn to:
+- deploy a cluster,
+- load the sample data,
+- access that data. 
 
-This workshop foucsuses on Atlas, our fully managed database service. The workshop contains several lab exercises. Don’t worry about completing all lab exercises in this sitting. The free environment you create in this lab will be yours forever. 
+This workshop focuses on Atlas, our fully managed database service. The workshop contains several lab exercises. Don’t worry about completing all lab exercises in this sitting. The free environment you create in this lab will be yours forever. 
 
-### Support or Contact
+### Support
 
-Having trouble with Pages? Check out our [documentation](https://docs.mongodb.com/) or [contact support](https://mongodb.com/support) and we’ll help you sort it out.
+If you need help, check out the [documentation](https://docs.mongodb.com/) but don't spend more than 5 minutes looking for answers. We are here to help so please call us.
 
-Join the conversation on the [MongoDB Community Forum](htthttps://developer.mongodb.com/community/forums/).
+Feel free to join the conversation on the [MongoDB Community Forum](https://developer.mongodb.com/community/forums/) as well.
