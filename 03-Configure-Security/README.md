@@ -26,9 +26,9 @@ Let's now create a MongoDB user (`Security/Database Access`) to provide client a
 
 ![Add new database user button](../images/03-add-new-user-button.png)
 
-MongoDB users are separate from users of the Atlas UI & API.
+MongoDB database users are separate from users of the Atlas UI & API.
 
-Database users have access to MongoDB databases (clusters), while Atlas users have access to the Atlas application itself. Atlas supports creating temporary MongoDB users that automatically expire within a user-configurable 7-day period.
+Database users have access to MongoDB databases (clusters), while Atlas users have access to the Atlas platform itself. Atlas supports creating temporary MongoDB users that automatically expire within a user-configurable 7-day period.
 
 ![Add User](../images/03-add-user.png)
 
