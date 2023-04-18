@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="https://www.mongodb.com/assets/images/global/favicon.ico"/>
+    <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- If you are not in JSFiddle add this line -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>My Todos List</title>
+</head>
+
+<body>
+<h1>My Todo List</h1>
+<div>
+    <!-- Login anonymously -->
+    <input type="submit" value="LOGIN" onClick="login()">
+    <!-- Finds todos in todos collection -->
+    <input type="submit" value="FIND" onClick="find_todos()">
+</div>
+
+<form id="todoForm" onsubmit="return false;">
+    <label for="taskInput">Task:</label>
+    <input type="text" id="taskInput" name="task" required>
+    <button type="submit" onclick="insert_todo()">Add</button>
+    <button type="submit" onclick="toggle_todo()">Toggle</button>
+    <button type="submit" onclick="delete_todo()">Delete</button>
+</form>
+
+<!-- Using this div to display the user ID -->
+<div id="user">
+    <p>User ID: <span id="userid"></span></p>
+</div>
+<!-- Using this div to show the todos -->
+<div id="todos"></div>
+
+<!-- If you are not in JSFiddle add this line -->
+<script src="javascript.js"></script>
+</body>
+
+</html>
