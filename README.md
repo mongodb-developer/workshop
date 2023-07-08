@@ -40,7 +40,7 @@ Let's test the Data API first.
 
 ![Name the API key](images/api_key_name.png)
 
-- **Save your API key**. Else you'll need to recreate a new one.
+- **Save your API key**. Otherwise, you'll need to recreate a new one.
 - The UI generates a valid cURL query with the API key for you to test this API.
 
 ![Test the data API with cURL](images/data_api_curl.png)
@@ -56,18 +56,18 @@ Let's test the Data API first.
     - find in the `sample_mflix.movies` collection which *year* the movie "The Matrix" was released?
 
 Note: If you have python installed, you can pretty print JSON by piping the result of the cURL command
-to `python -m json.tool`
+to `python3 -m json.tool`
 
 ### HTTPS Custom Endpoints
 #### Set up
 
-OK so, now, you have a REST API that allow you to interact with the data in your Atlas cluster.
+OK so, now, you have a REST API that allows you to interact with the data in your Atlas cluster.
 
 But what if you need more logic in your REST API? What if you need to call a 3rd party API to build your answer?
 
 To achieve this, you can use HTTPS Endpoints which execute a JavaScript function when called.
 
-- Let's navigate in our serverless application in the App Services tab.
+- Let's navigate in our serverless application in the [App Services](https://www.mongodb.com/docs/atlas/app-services/) tab.
 
 ![App Services tab](images/nav_app_services.png)
 
@@ -130,7 +130,7 @@ https://eu-west-1.aws.data.mongodb-api.com/app/data-abcde/endpoint/insert_with_d
 ```
 
 - Note that the URL endpoint is unique to your project as it contains a unique APPID: `data-abcde`.
-- Try to execute your cURL command...
+- Try executing your cURL command...
 - Remember when I said security is important?
 - Just like the Data API, we can use our user API key. Add your API key header and try again.
 
@@ -157,9 +157,9 @@ https://eu-west-1.aws.data.mongodb-api.com/app/data-abcde/endpoint/insert_with_d
 ## GraphQL API
 ### Set up
 
-With Atlas App Services, you can also create a GraphQL endpoint to interact with your data.
+With [Atlas App Services](https://www.mongodb.com/docs/atlas/app-services/), you can also create a GraphQL endpoint to interact with your data.
 
-- Go to the GraphQL service and let's create a JSON Schema.
+- Go to the GraphQL service tab and let's create a JSON Schema.
 
 ![Navigation to the GraphQL service](images/nav_graphql.png)
 
@@ -209,15 +209,30 @@ query {
 }
 ```
 
-- Here is our query with cURL. Again, it's secured by default, so don't forget your API key or any other authentication mean.
+- Here is our cURL query. Again, it's secured by default, so don't forget your API key or any other authentication mean.
 
 ```shell
-curl -s "https://eu-west-1.aws.realm.mongodb.com/api/client/v2.0/app/data-cetpw/graphql" \
-     -H "apiKey: Ol92QwqP7Wo3uSV3ukUraZgjMp9sNNpLTYWIjEecG1KSTbJrt8MWgkJ2Avdot8PO" \
+curl -s "https://eu-west-1.aws.realm.mongodb.com/api/client/v2.0/app/data-abcde/graphql" \
+     -H "apiKey: YOUR_API_KEY_HERE" \
      -H "Content-Type: application/json" \
      --data-raw '{"query": "query { movie (query: {title: \"The Matrix\"}) { title year rated released fullplot } }" }'
 ```
 
 - Note: You can add `| python3 -m json.tool` at the end if you feel like *pretty* today.
+
+### Rules
+
+One last detail about all this... We didn't define an access rule to allow the REST and GraphQL queries to read and write data.
+
+So why is it working then?
+
+- Head to the `Rules` tab and you should see this:
+
+![Rules tab](images/rules.png)
+
+- By default, your application has a default rule that applies to all the collections in your cluster: "readAndWriteAll".
+- If you remove this rule, you'll see that your GraphQL query won't work anymore.
+- But then you can create a new specific rule for the `sample_mflix.movies` collection.
+- With the [Role-based Permissions](https://www.mongodb.com/docs/atlas/app-services/rules/roles/), you can customize very precisely (down to [Field-Level permissions](https://www.mongodb.com/docs/atlas/app-services/rules/roles/#field-level-permissions)) who can read and write fields within a document.
 
 And voilà! You are officially a REST & GraphQL API boss!
