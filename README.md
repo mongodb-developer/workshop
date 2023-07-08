@@ -9,7 +9,7 @@ This workshop assumes that you have already completed
 the [MongoDB Atlas tutorial](https://github.com/mongodb-developer/workshop/tree/atlas). To follow along, you'll need
 access to your Atlas cluster with the sample data set.
 
-## REST API
+## REST APIs
 
 MongoDB Atlas offers 2 options to create a serverless REST API:
 
@@ -19,7 +19,8 @@ MongoDB Atlas offers 2 options to create a serverless REST API:
   create app-specific API routes or webhooks that integrate with external services. A custom endpoint uses a serverless
   function that you write to handle incoming requests for a specific URL and HTTP method.
 
-### The Data API - Set up
+### The Data API
+#### Set up
 
 Let's test the Data API first.
 
@@ -44,16 +45,21 @@ Let's test the Data API first.
 
 ![Test the data API with cURL](images/data_api_curl.png)
 
-### The Data API - Testing
+#### Testing
 
-- As you can see, there is a [projection](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-find-projection), so it only returns the `_id` fields of the document. Try to remove it to display the entire document.
-- Using the [Data API Resources documentation](https://www.mongodb.com/docs/atlas/api/data-api-resources/), can you craft a cURL to:
-  - insert a new document
-  - find in the `sample_mflix.movies` collection which *year* the movie "The Matrix" was released?
+- As you can see, there is
+  a [projection](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-find-projection), so
+  it only returns the `_id` fields of the document. Try to remove it to display the entire document.
+- Using the [Data API Resources documentation](https://www.mongodb.com/docs/atlas/api/data-api-resources/), can you
+  craft a cURL to:
+    - insert a new document
+    - find in the `sample_mflix.movies` collection which *year* the movie "The Matrix" was released?
 
-Note: If you have python installed, you can pretty print JSON by piping the result of the cURL command to `python -m json.tool`
+Note: If you have python installed, you can pretty print JSON by piping the result of the cURL command
+to `python -m json.tool`
 
-### HTTPS Custom Endpoints - Set up
+### HTTPS Custom Endpoints
+#### Set up
 
 OK so, now, you have a REST API that allow you to interact with the data in your Atlas cluster.
 
@@ -61,11 +67,12 @@ But what if you need more logic in your REST API? What if you need to call a 3rd
 
 To achieve this, you can use HTTPS Endpoints which execute a JavaScript function when called.
 
-- Let's navigation in our serverless application in the App Services tab.
+- Let's navigate in our serverless application in the App Services tab.
 
 ![App Services tab](images/nav_app_services.png)
 
-- When you activated the Data API, Atlas created a serverless application for you automatically to host your REST application.
+- When you activated the Data API, Atlas created a serverless application for you automatically to host your REST
+  application.
 
 ![Data application](images/data_app.png)
 
@@ -73,12 +80,14 @@ To achieve this, you can use HTTPS Endpoints which execute a JavaScript function
 
 ![Data API in the application](images/nav_data_api_app.png)
 
-- If you check the authentication tab, you'll also see that the `API Keys` provider was also activated already for the Data API.
+- If you check the authentication tab, you'll also see that the `API Keys` provider was also activated already for the
+  Data API.
 
 ![Auth providers](images/auth_providers.png)
 
 - Now let's create a simple HTTPS endpoint that does something that the Data API cannot do.
-- Let's create an HTTPS POST endpoint that saves a document in a MongoDB collection and adds a field `insertedAt = new Date()`.
+- Let's create an HTTPS POST endpoint that saves a document in a MongoDB collection and adds a
+  field `insertedAt = new Date()`.
 - Go to the HTTPS Endpoints tab and create a new endpoint.
 
 ![Create https endpoint](images/create_endpoint_name.png)
@@ -87,27 +96,31 @@ To achieve this, you can use HTTPS Endpoints which execute a JavaScript function
 
 ![Create the function](images/create_function.png)
 
-- Name your function and use the following code: 
+- Name your function and use the following code:
 
 ```js
-exports = function({ query, headers, body}, response) {
-  // access our MongoDB Atlas cluster
-  const atlas = context.services.get("Free"); // Update with the name of your cluster
-  const coll = atlas.db("test").collection("users");
+exports = function ({query, headers, body}, response) {
+    // access our MongoDB Atlas cluster
+    const atlas = context.services.get("Free"); // Update with the name of your cluster
+    const coll = atlas.db("test").collection("users");
 
-  // get the doc from the body and add date
-  let doc = JSON.parse(body.text());
-  doc.insertedAt = new Date();
+    // get the doc from the body and add date
+    let doc = JSON.parse(body.text());
+    doc.insertedAt = new Date();
 
-  // insert in our collection
-  coll.insertOne(doc).then(res => {
-    response.setBody(JSON.stringify(res));
-  });
+    // insert in our collection
+    coll.insertOne(doc).then(res => {
+        response.setBody(JSON.stringify(res));
+    });
 };
 ```
 
-- Save your endpoint and navigate back to it to retrieve the cURL command.
-- It should look like this: 
+- Save your endpoint. Your endpoint is ready to use.
+
+#### Testing
+
+- Navigate back to your new endpoint to retrieve the cURL command.
+- It should look like this:
 
 ```shell
 curl \
@@ -134,11 +147,77 @@ https://eu-west-1.aws.data.mongodb-api.com/app/data-abcde/endpoint/insert_with_d
 ![Document with the new Date](images/user_added.png)
 
 - Of course, our JavaScript function can do much more than that.
-  - send HTTP requests,
-  - connect to external services,
-  - use NPM dependencies,
-  - run multiple MongoDB queries,
-  - implement some complex business logic,
-  - ...
+    - send HTTP requests,
+    - connect to external services,
+    - use NPM dependencies,
+    - run multiple MongoDB queries,
+    - implement some complex business logic,
+    - ...
 
 ## GraphQL API
+### Set up
+
+With Atlas App Services, you can also create a GraphQL endpoint to interact with your data.
+
+- Go to the GraphQL service and let's create a JSON Schema.
+
+![Navigation to the GraphQL service](images/nav_graphql.png)
+
+- As you can see, you've been redirected to the `Schema` tab of your serverless application.
+- Let's create a schema for the `sample_mflix.movies` collection.
+
+![Schema for the sample_mflix.movies collection](images/nav_schema.png)
+
+- You have the option to generate a schema by sampling the existing documents in the collection. Can it be more simple than that?!
+
+![Generate Schema](images/generate_schema.png)
+
+- Now that you have a schema, don't forget to save it!
+
+![Save the schema](images/save_schema.png)
+
+- Navigate back to the GraphQL service.
+- You should now be welcomed by a Graph*i*QL interface.
+- Hit the `play` button to run the default query and retrieve a movie document.
+
+![GraphiQL interface](images/graphiql.png)
+
+- Notice that you can see the results of your queries directly in the UI (3).
+- You can also access the GraphQL endpoint at the top (4).
+- On the right side, you can also see the documentation of all the operations implemented by default.
+
+![GraphQL queries](images/graphql_queries.png)
+
+![GraphQL mutations](images/graphql_mutations.png)
+
+### Testing
+
+Let's try this in production now!
+
+- Let's retrieve some data about "The Matrix".
+- Here is the GraphQL query we want to execute.
+
+```
+query {
+  movie (query: {title: "The Matrix"}) {
+    title
+    year
+    rated
+    released
+    fullplot
+  }
+}
+```
+
+- Here is our query with cURL. Again, it's secured by default, so don't forget your API key or any other authentication mean.
+
+```shell
+curl -s "https://eu-west-1.aws.realm.mongodb.com/api/client/v2.0/app/data-cetpw/graphql" \
+     -H "apiKey: Ol92QwqP7Wo3uSV3ukUraZgjMp9sNNpLTYWIjEecG1KSTbJrt8MWgkJ2Avdot8PO" \
+     -H "Content-Type: application/json" \
+     --data-raw '{"query": "query { movie (query: {title: \"The Matrix\"}) { title year rated released fullplot } }" }'
+```
+
+- Note: You can add `| python3 -m json.tool` at the end if you feel like *pretty* today.
+
+And voilà! You are officially a REST & GraphQL API boss!
