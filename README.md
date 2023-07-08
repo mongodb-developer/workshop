@@ -78,7 +78,7 @@ To achieve this, you can use HTTPS Endpoints which execute a JavaScript function
 ![Auth providers](images/auth_providers.png)
 
 - Now let's create a simple HTTPS endpoint that does something that the Data API cannot do.
-- Let's create an HTTPS POST endpoint that saves a document in a MongoDB collection and adds a field `insertAt: new Date()`.
+- Let's create an HTTPS POST endpoint that saves a document in a MongoDB collection and adds a field `insertedAt = new Date()`.
 - Go to the HTTPS Endpoints tab and create a new endpoint.
 
 ![Create https endpoint](images/create_endpoint_name.png)
